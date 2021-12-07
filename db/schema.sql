@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS adoption_db;
+
+CREATE DATABASE adoption_db;
