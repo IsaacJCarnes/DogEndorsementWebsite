@@ -1,41 +1,31 @@
 const router = require('express').Router();
 const https = require('https');
 
-const getBreedList = async() => {
-    let url = 'https://dog.ceo/api/breeds/list/all';
-    https.get(url, (resp) => {
-        let data = '';
+const getBreedList = () => {
+    return new Promise((resolve, reject) => {
+        let url = 'https://dog.ceo/api/breeds/list/all';
+        https.get(url, (resp) => {
+            let data = '';
 
-        // A chunk of data has been received.
-        resp.on('data', (chunk) => {
-            data += chunk;
-        });
+            // A chunk of data has been received.
+            resp.on('data', (chunk) => {
+                data += chunk;
+            });
 
-        // The whole response has been received. Print out the result.
-        resp.on('end', () => {
-            console.log(JSON.parse(data));
+            // The whole response has been received. Print out the result.
+            resp.on('end', () => {
+                resolve(JSON.parse(data));
+            });
+        }).on("error", (err) => {
+            console.log("Error: " + err.message);
+            reject(err);
         });
-    }).on("error", (err) => {
-    console.log("Error: " + err.message);
     });
-}
-/*function getBreedList(){
-    let https = require('https');
-    let url = 'https://dog.ceo/api/breeds/list/all';
-
-    https.get(url, (response) => {
-        body = '';
-        response.on('data', function(chunk) {
-            body += chunk
-        });
-        console.log(body);
-        return body;
-    });
-};*/
+};
 
 router.get('/', async (req, res) => {
     try{
-        let breedList = getBreedList();
+        let breedList = await getBreedList();
         res.json(breedList);
     } catch (err){
         console.log(err);
