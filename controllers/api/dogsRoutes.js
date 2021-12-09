@@ -4,7 +4,7 @@ const https = require('https');
 const getBreedList = () => {
     return new Promise((resolve, reject) => {
         let url = 'https://dog.ceo/api/breeds/list/all';
-        https.get(url, (resp) => {
+        const request = https.get(url, (resp) => {
             let data = '';
 
             // A chunk of data has been received.
@@ -20,6 +20,7 @@ const getBreedList = () => {
             console.log("Error: " + err.message);
             reject(err);
         });
+        request.end();
     });
 };
 
