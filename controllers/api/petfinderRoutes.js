@@ -1,5 +1,47 @@
 const router = require('express').Router();
 const https = require('https');
+const { url } = require('inspector');
+const { cachedDataVersionTag } = require('v8');
+const { Dog } = require('../../models');
+
+const deconstructArray = (dogArray) => {
+    let dog = {
+        id: dogArray.id,
+        name: dogArray.name,
+        breed: dogArray.breeds.primary,
+        gender: dogArray.gender,
+        //photo_url: dogArray.photos[0].small,
+        description: dogArray.description,
+        adoptable: dogArray.adoptable,
+        distance: dogArray.distance,
+        //address: dogArray.address.address1,
+        adopt_url: dogArray.url,
+    };
+
+    if(dogArray.photos[0]){
+        dog.photo_url = dogArray.photos[0].small;
+    } else {
+        dog.photo_url = null;
+    }
+
+    if(dogArray.contact.address){
+        dog.address1 = dogArray.contact.address.address1;
+        dog.address2 = dogArray.contact.address.address2;
+        dog.city = dogArray.contact.address.city;
+        dog.state = dogArray.contact.address.state;
+        dog.zipcode = dogArray.contact.address.postcode;
+    } else {
+        dog.address = null;
+        dog.address1 = null;
+        dog.address2 = null;
+        dog.city = null;
+        dog.state = null;
+        dog.zipcode = null;
+    }
+
+    return dog;
+};
+
 
 const getToken= () => {
     return new Promise((resolve, reject) => {
@@ -38,8 +80,6 @@ const getToken= () => {
 
 const getDogsList = async (token, location, breed) => { //Location is based on zip code
     return new Promise((resolve, reject) => {
-        var accessToken = `Authorization: Bearer ${token.access_token}`;
-        //GET https://api.petfinder.com/v2/{CATEGORY}/{ACTION}?{parameter_1}={value_1}&{parameter_2}={value_2}
         var url = 'https://api.petfinder.com/v2/animals?type=dog';
         if(location){
             url = url + '&' + 'location=' +location;
@@ -84,16 +124,14 @@ const getDogsFromBreed = async (token, breed) =>{
     return dogList;
 }
 
-const deconstructDog = (dogArray) => {
-    
-};
-
 router.get('/', async (req, res) => {
     try{
         let token = JSON.parse(await getToken());
         if(token.access_token != null){
             let dogList = await getDogsFromLocation(token, "15206");
-            res.json(dogList.animals[0]);
+            //let printout = JSON.stringify(deconstructArray(dogList.animals[0])) +" |||| "+ JSON.stringify(dogList.animals[0]);
+            //res.json(printout);
+            res.json(deconstructArray(dogList.animals[0]));
         } else {
             res.json(token);
         }
