@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/IsaacJCarnes/DogEndorsementWebsite/issues"
   },
-  "homepage": "https://github.com/IsaacJCarnes/DogEndorsementWebsite#readme"
+  "homepage": "https://github.com/IsaacJCarnes/DogEndorsementWebsite#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^2.2.19"
+  }
 }
