@@ -1,5 +1,5 @@
 {
-  "name": "DogEndorsementWebsite",
+  "name": "dogendorsementwebsite",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -14,7 +14,6 @@
     "node-fetch": "^3.1.0",
     "sequelize": "^6.12.0-beta.1"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -29,5 +28,10 @@
   "bugs": {
     "url": "https://github.com/IsaacJCarnes/DogEndorsementWebsite/issues"
   },
-  "homepage": "https://github.com/IsaacJCarnes/DogEndorsementWebsite#readme"
+  "homepage": "https://github.com/IsaacJCarnes/DogEndorsementWebsite#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^2.2.19"
+  }
 }
