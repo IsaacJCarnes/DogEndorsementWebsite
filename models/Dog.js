@@ -14,9 +14,13 @@ Dog.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    breed: {
+    breed1: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    breed2: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     gender: {
       type: DataTypes.STRING,

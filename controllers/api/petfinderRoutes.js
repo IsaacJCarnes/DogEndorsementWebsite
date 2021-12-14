@@ -8,7 +8,8 @@ const deconstructArray = (dogArray) => {
     let dog = {
         id: dogArray.id,
         name: dogArray.name,
-        breed: dogArray.breeds.primary,
+        breed1: dogArray.breeds.primary,
+        breed2: dogArray.breeds.secondary,
         gender: dogArray.gender,
         //photo_url: dogArray.photos[0].small,
         description: dogArray.description,
@@ -38,7 +39,6 @@ const deconstructArray = (dogArray) => {
         dog.state = null;
         dog.zipcode = null;
     }
-
     return dog;
 };
 
@@ -124,20 +124,89 @@ const getDogsFromBreed = async (token, breed) =>{
     return dogList;
 }
 
-router.get('/', async (req, res) => {
-    try{
-        let token = JSON.parse(await getToken());
-        if(token.access_token != null){
-            let dogList = await getDogsFromLocation(token, "15206");
-            //let printout = JSON.stringify(deconstructArray(dogList.animals[0])) +" |||| "+ JSON.stringify(dogList.animals[0]);
-            //res.json(printout);
-            res.json(deconstructArray(dogList.animals[0]));
-        } else {
-            res.json(token);
+const getBreedsList = async (token) => {
+    return new Promise((resolve, reject) => {
+        var url = 'https://api.petfinder.com/v2/types/dog/breeds';
+
+        var https_options = {
+            method: 'GET',
+            headers: {
+                "Authorization": `Bearer ${token.access_token}`
+            }
         }
-    } catch (err){
-        console.log(err);
-        res.status(500).json(err);
+        const request = https.request(url, https_options, (resp) => {
+            let data = '';
+
+            // A chunk of data has been received.
+            resp.on('data', (chunk) => {
+                data += chunk;
+            });
+
+            // The whole response has been received. Print out the result.
+            resp.on('end', () => {
+                resolve(JSON.parse(data));
+            });
+        }).on("error", (err) => {
+            console.log("Error: " + err.message);
+            reject(err);
+        });
+        request.end();
+    });
+}
+
+let token = null;
+router.get('/', async (req, res) => {
+    if(token === null){
+        try{
+            token = JSON.parse(await getToken());
+            res.json("Token Accepted");
+        } catch (err){
+            console.log(err);
+            res.status(500).json(err);
+        }
+    } 
+});
+
+router.get('/doglist/:zip', async (req, res) =>{
+    if(token.access_token != null){
+        let dogList = await getDogsFromLocation(token, req.params.zip);
+        let dogArray = [];
+        for(i = 0; i < dogList.animals.length; i++){
+            dogArray.push(deconstructArray(dogList.animals[i]));
+            console.log(dogArray[i].distance);
+        }
+        dogArray.sort((a, b) => a.distance - b.distance);
+        res.json(dogArray);
+    } else {
+        res.json("No petfinder request token available.");
     }
 });
+
+router.get('/doglist/:zip/:breed', async (req, res) =>{
+    if(token.access_token != null){
+        let dogList = await getDogsList(token, req.params.zip, req.params.breed);
+        let dogArray = [];
+        for(i = 0; i < dogList.animals.length; i++){
+            dogArray.push(deconstructArray(dogList.animals[i]));
+        }
+        dogArray.sort((a, b) => a.distance - b.distance);
+        res.json(dogArray);
+    } else {
+        res.json("No petfinder request token available.");
+    }
+});
+
+router.get('/dogbreeds', async (req, res) =>{
+    if(token.access_token != null){
+        let breedList = await getBreedsList(token);
+        let newList = [];
+        for(i = 0; i < breedList.breeds.length; i++){
+            newList.push(breedList.breeds[i].name);
+        }
+        res.json(newList);
+    } else {
+        res.json("No petfinder request token available.");
+    }
+});
+
 module.exports = router;
