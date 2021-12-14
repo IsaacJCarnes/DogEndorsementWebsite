@@ -2,7 +2,7 @@ const Signinbutton = document.getElementById("signin button")
 const Signupbutton = document.getElementById("signup button")
 const Registerbutton = document.getElementById("register button") 
 const Signinbox = document.getElementById("signin")
-const Body = document.getElementById("body")
+const Body = document.getElementById("body2")
 const Signupbox = document.getElementById("signup")
 
 Signinbutton.addEventListener("click",InitiateSignIn)

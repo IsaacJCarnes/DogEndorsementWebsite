@@ -5,12 +5,31 @@
     height:100%;
 }
 #box1{  
-   
+
         margin:0 auto;
 }
 #signup{
     display:none;
-    position:fixed;
+    position:absolute;
     width: 100%;
     height:100%;
+}
+#mapsection{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+#mapsection h2{
+    margin-left: 25%;
+    font-size: xx-large;
+    font-weight: bold;
+}
+#map{
+
+        margin: auto;
+        width: 100%;
+        padding: 10px;
+}
+#looker{
+
 }
