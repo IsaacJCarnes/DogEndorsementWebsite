@@ -159,7 +159,7 @@ router.get('/', async (req, res) => {
     if(token === null){
         try{
             token = JSON.parse(await getToken());
-            res.json("Token Accepted");
+            res.send(token);
         } catch (err){
             console.log(err);
             res.status(500).json(err);
