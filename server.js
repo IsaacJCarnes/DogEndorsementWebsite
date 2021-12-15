@@ -36,7 +36,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/index.html'))
+  res.render('searchList', {layout : 'main'})
+);
+
+app.get('/saved', (req, res) =>
+  res.render('savedList', {layout : 'result'})
 );
 
 sequelize.sync({ force: false }).then(() => {
