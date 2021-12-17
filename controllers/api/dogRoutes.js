@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Dog } = require('../../models');
 
-//SELECT * FROM dog WHERE user_id = 1;
+
 
 // CREATE new dog
 router.post('/', async (req, res) => {
@@ -20,7 +20,6 @@ router.post('/', async (req, res) => {
         user_id: user_id,
       });
   
-      const dogData = dbDogData.get({plain: true}); //Test
       res.status(200).json(dbDogData);
     } catch (err) {
       console.log(err);

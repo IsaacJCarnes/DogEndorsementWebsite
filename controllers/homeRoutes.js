@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const https = require('https');
 const { lazyrouter } = require('express/lib/application');
-const { User } = require('../models');
+const { User, Dog } = require('../models');
 const withAuth = require('../utils/auth');
 const {tokenAuth, deconstructArray} = require('../utils/helpers');
 
@@ -149,7 +149,7 @@ router.get('/search/:zipcode/:breed', async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     res.redirect('/');
     return;
   }
@@ -158,12 +158,33 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/signup', (req, res) => {
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     res.redirect('/');
     return;
   }
 
   res.render('singup');
+});
+
+router.get('/saved', async (req, res) => {
+  let loggedIn = req.session.loggedIn;
+  let id = req.session.userId;
+  if (!loggedIn) {
+    res.redirect('/login');
+    return;
+  }
+  let dbDogData = await Dog.findAll({
+    where: {
+      user_id: id,
+    },
+    raw: true,
+  });
+  let dogs = dbDogData;
+  console.log(dbDogData);
+  res.render('wishlist', {
+    dogs,
+    loggedIn,
+  });
 });
 
 module.exports = router;
