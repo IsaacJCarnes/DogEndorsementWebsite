@@ -1,0 +1,22 @@
+<div id="mapsection">
+    <h2>
+        Find your Friend here :)
+    </h2>
+    <h3>
+        Please insert your criteria here and your results will be brought on on the next page
+    </h3>
+  <form class="form prefrences-form">
+    <label for="Zipcode">Zipcode:</label>
+    <input type="text" id="zipcode" name="zipcode" required>
+    <label for="breed">Dog Breed:</label>
+    <select name="breed" id="breeds">
+      <option value="">Pick A Breed</option>
+      {{#each breeds as |breed|}}
+        <option value="{{this}}">{{this}}</div>
+      {{/each}}
+    </select>
+    <input type="submit">
+  </form>
+</div>
+
+<script src="/js/submitButton.js"></script>
