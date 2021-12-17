@@ -180,7 +180,6 @@ router.get('/saved', async (req, res) => {
     raw: true,
   });
   let dogs = dbDogData;
-  console.log(dbDogData);
   res.render('wishlist', {
     dogs,
     loggedIn,

@@ -27,4 +27,15 @@ router.post('/', async (req, res) => {
     }
   });
 
+  router.delete('/:id', async (req, res) => {
+    try {
+      console.log("in delete " + req.params.id);
+      const response = await (await Dog.findByPk(req.params.id)).destroy();
+      res.status(200).json(response);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+  });
+
 module.exports = router;
