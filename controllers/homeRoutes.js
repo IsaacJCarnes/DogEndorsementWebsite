@@ -81,7 +81,7 @@ async function newToken(req) {
 router.get('/', async (req, res) => {
   try {
     let myCurrentToken = req.session.petToken;
-    let logged = req.session.loggedIn;
+    let loggedIn = req.session.loggedIn;
     if(!myCurrentToken){
       let tokenStuff = await newToken(req);
       myCurrentToken = JSON.parse(tokenStuff);
@@ -103,20 +103,19 @@ router.get('/', async (req, res) => {
     for(i = 0; i < breedData.breeds.length; i++){
       breeds.push(breedData.breeds[i].name);
     }
-    console.log(req.session.loggedIn);
     res.render('prefrences', {
       breeds,
-      logged_in: logged,
+      loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/search/:zipcode/:breed', withAuth, async (req, res) => {
+router.get('/search/:zipcode/:breed', async (req, res) => {
   try {
     let myCurrentToken = req.session.petToken;
-    let logged = req.session.loggedIn;
+    let loggedIn = req.session.loggedIn;
     if(!myCurrentToken){
       let tokenStuff = await newToken(req);
       myCurrentToken = JSON.parse(tokenStuff);
@@ -142,7 +141,7 @@ router.get('/search/:zipcode/:breed', withAuth, async (req, res) => {
     dogs.sort((a, b) => a.distance - b.distance);
     res.render('searchList', {
       dogs,
-      logged_in: logged,
+      loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);

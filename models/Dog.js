@@ -28,22 +28,23 @@ Dog.init(
     },
     photo_url: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     adoptable: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     distance: {
-        type: DataTypes.FLOAT,
-        allowNull: true,
+      type: DataTypes.FLOAT,
+      allowNull: true,
     },
     adopt_url: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'user',
         key: 'id',
