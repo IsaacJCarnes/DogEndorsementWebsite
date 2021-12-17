@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const https = require('https');
-const { lazyrouter } = require('express/lib/application');
 const { User, Dog } = require('../models');
-const withAuth = require('../utils/auth');
 const {tokenAuth, deconstructArray} = require('../utils/helpers');
 
 const getDogsList = async (token, location, breed) => { //Location is based on zip code

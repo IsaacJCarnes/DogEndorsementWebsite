@@ -1,4 +1,5 @@
 const https = require('https');
+require('dotenv').config();
 
 module.exports = {
     deconstructArray: (dogArray) => {
@@ -75,8 +76,8 @@ getBreedsList: async (token) => {
 tokenAuth : () => {
     return new Promise(async (resolve, reject) => {
         var url = 'https://api.petfinder.com/v2/oauth2/token'
-        var id = 'bdQfKZtELZCIkwT9oFyeHWcnFNopLlJviUACXCaFPiK5ynBPIW';
-        var secret = 'shVnvnU2ZtPaUcIEAsW6YYpmvykYapVcej1M51GM';
+        var id = process.env.API_ID;
+        var secret = process.env.API_SECRET;
 
         var https_options = {
             method: 'POST',
