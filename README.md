@@ -11,12 +11,14 @@ The application needs the MySql2, Express, Sequalize and dotenv packages to func
 ## Usage
 The website needs these packages to run: bcrypt, connect-session-sequelize, dotenv, express, express-handlebars, express-session, mysql2, node-fetch, sequelize.
 
-Here is a [link to a video](https://watch.screencastify.com/v/tUKJ1tVdZwHdyRl3VS2z) detailing how to use the website.
+Here is a [link to a video](https://watch.screencastify.com/v/1ABe8kUB7tJZnIcARmWM) detailing how to use the website.
 ## Contributors
 Isaac:
 - Checkout my [Github here](https://github.com/IsaacJCarnes)
+
 Tasnim:
 - Checkout my [Github here](https://github.com/tasnim123)
+
 Paul:
 - Checkout my [Github here](https://github.com/Orbit001)
 
