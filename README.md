@@ -26,5 +26,3 @@ Paul:
 
 ## Resources
 Dog adoption data is gathered from the petfinder api.
-
-  
