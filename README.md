@@ -4,14 +4,15 @@ The Dog Endorsement Website makes filtering, finding and reffering back to adopt
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
+- [Contributors](#contributers)
 - [Resources](#resources)
-- [Contributors](#resources)
 ## Installation
 The application needs the MySql2, Express, Sequalize and dotenv packages to function
 ## Usage
 The website needs these packages to run: bcrypt, connect-session-sequelize, dotenv, express, express-handlebars, express-session, mysql2, node-fetch, sequelize.
 
-Here is a [link to a video](https://watch.screencastify.com/v/1ABe8kUB7tJZnIcARmWM) detailing how to use the website.
+Here is a link to a [video](https://watch.screencastify.com/v/1ABe8kUB7tJZnIcARmWM) detailing how to use the website.
+Here is a link to the [deployed site](https://dog-endorsement-website.herokuapp.com/).
 ## Contributors
 Isaac:
 - Checkout my [Github here](https://github.com/IsaacJCarnes)
