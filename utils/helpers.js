@@ -152,5 +152,9 @@ getDogsFromBreed: async (token, breed) =>{
     return dogList;
 },
 
+roundDistance: (number) =>{
+    return (Math.round(number * 100) / 100);
+},
+
 }
   

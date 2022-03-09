@@ -18,14 +18,12 @@
 
             <div class="d-flex flex-column" style="width: 30%">
                 <div class=""><a href={{this.adopt_url}}>To Adoption Page!</a></div>
-                {{#if loggedIn}}
                 <div class="">
                     <input type="hidden" value={{this.id}} name="storeInput">
                     <input type="button" value="Add To Dog Wishlist" name="store">
                 </div>
-                {{/if}}
                 <div class="adoptable text-justify">Currently {{this.adoptable}}</div>
-                <div class="distance text-justify">{{this.distance}} miles away</div>
+                <div class="distance text-justify">{{roundDistance this.distance}} miles away</div>
             </div>
         </div>
     </li>

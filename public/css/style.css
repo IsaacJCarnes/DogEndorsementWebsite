@@ -25,6 +25,7 @@ a {
 }
 
 header {
+  height: 18vh;
   padding: 40px;
   text-align: center;
   background: var(--primary);
@@ -176,7 +177,8 @@ img {
   display: flex;
   flex-direction: column;
   padding: 4px;
-  height: 70vh;
+  width: 74vw;
+  height: 64vh;
   background-color: rgb(202, 191, 191);
   overflow-x: hidden;
   overflow-y: auto;
@@ -259,7 +261,7 @@ img {
     justify-content: center;
   }
   .Title{
-    font-size: 2rem;
+    font-size: 1.55rem;
   }
   aside{
     display: none;
