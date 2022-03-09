@@ -5,35 +5,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dog Endorsement Website</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/css/jass.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
 <body>
   <header class="container-fluid">
-    <h1>The Dog Endorsement Website</h1>
+    <h1 class="Title">The Dog Endorsement Website</h1>
   </header>
-  <div class="container-fluid p-0">
-    <nav class="container-fluid w-100">
-      <a href="/">Home</a>
-      {{#if loggedIn}}
-      <a href="/saved">Saved Dogs</a>
-      <button id="logout" class="btn-no-style ml-auto text-light p-3">Logout</button>
-      {{else}}
-      <a href="/login">Login</a>
-      <a href="/signup">Sign Up</a>
-      {{/if}}
-    </nav>
-    <main class="container-fluid p-0 m-0">
-      <aside class="w-25 h-auto pm-0 pm-0 d-inline-block">
-        <h2>Let Us Help You Find A Forever Friend!</h2>
-      </aside>
-      <div class="container w-75 h-100 p-3 d-inline-block">
-        {{{body}}}
-      </div>
-    </main>
-  </div>
+  <nav class="container-fluid w-100">
+    <a href="/">Home</a>
+    {{#if loggedIn}}
+    <a href="/saved">Saved Dogs</a>
+    <button id="logout" class="btn-no-style ml-auto text-light p-3">Logout</button>
+    {{else}}
+    <a href="/login">Login</a>
+    <a href="/signup">Sign Up</a>
+    {{/if}}
+  </nav>
+  <main>
+    <aside>
+      <h2 class="AsideHeader">Let Us Help You Find A Forever Friend!</h2>
+    </aside>
+    <div class="Content">
+      {{{body}}}
+    </div>
+  </main>
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}

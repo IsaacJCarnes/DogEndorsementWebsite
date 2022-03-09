@@ -31,18 +31,42 @@ header {
   color: var(--light);
 }
 
+.Title{
+  font-size: 2rem;
+}
+
 main {
   display: flex;
+  justify-content: flex-start;
   flex-wrap: wrap;
   flex-grow: 1;
 }
 
 aside {
+  display: flex;
   flex: 0;
   background-color: var(--tertiary);
   padding: 80px;
-  text-align: left;
   color: var(--light);
+  width: 25vw;
+  height: auto;
+}
+
+.AsideHeader{
+  font-size: 1.5rem;
+  width: 10vw;
+  text-align: center;
+}
+
+.Content{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 77.5vw;
+  padding-right: 2vw;
+  padding-left: 2vw;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
 }
 
 nav {
@@ -155,7 +179,7 @@ img {
   display: flex;
   flex-direction: column;
   padding: 4px;
-  height: 400px;
+  height: 70vh;
   background-color: rgb(202, 191, 191);
   overflow-x: hidden;
   overflow-y: auto;
@@ -222,4 +246,31 @@ img {
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
   display: block;
+}
+
+#breeds{
+  width: 50vw;
+}
+
+@media screen and (max-width: 600px) {
+  main{
+    justify-content: center;
+  }
+  .Title{
+    font-size: 1.3rem;
+  }
+  aside{
+    display: none;
+  }
+  .Content{
+    width: 90vw;
+    align-items: center;
+  }
+  .Content h3{
+    width: 90vw;
+    font-size: 1.5rem;
+  }
+  #breeds{
+    width: 60vw;
+  }
 }
