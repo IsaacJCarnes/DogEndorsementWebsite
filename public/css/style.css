@@ -25,24 +25,49 @@ a {
 }
 
 header {
+  height: 18vh;
   padding: 40px;
   text-align: center;
   background: var(--primary);
   color: var(--light);
 }
 
+.Title{
+  font-size: 2rem;
+}
+
 main {
   display: flex;
+  justify-content: flex-start;
   flex-wrap: wrap;
   flex-grow: 1;
 }
 
 aside {
+  display: flex;
   flex: 0;
   background-color: var(--tertiary);
   padding: 80px;
-  text-align: left;
   color: var(--light);
+  width: 25vw;
+  height: auto;
+}
+
+.AsideHeader{
+  font-size: 1.5rem;
+  width: 10vw;
+  text-align: center;
+}
+
+.Content{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 75vw;
+  padding-right: 2vw;
+  padding-left: 2vw;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
 }
 
 nav {
@@ -139,10 +164,7 @@ img {
 }
 
 .adoptcard img {
-  display: absolute;
-
-  width: 350px;
-  float: left;
+  width: 15vw;
   margin-right: 10px;
 }
 .adoptcardtext {
@@ -155,7 +177,8 @@ img {
   display: flex;
   flex-direction: column;
   padding: 4px;
-  height: 400px;
+  width: 74vw;
+  height: 64vh;
   background-color: rgb(202, 191, 191);
   overflow-x: hidden;
   overflow-y: auto;
@@ -222,4 +245,42 @@ img {
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
   display: block;
+}
+
+#breeds{
+  width: 50vw;
+}
+
+.dogitem div{
+  font-size: 1rem;
+}
+
+
+@media screen and (max-width: 601px) { /*Mobile CSS*/
+  main{
+    justify-content: center;
+  }
+  .Title{
+    font-size: 1.55rem;
+  }
+  aside{
+    display: none;
+  }
+  .Content{
+    width: 90vw;
+    align-items: center;
+  }
+  .Content h3{
+    width: 90vw;
+    font-size: 1.5rem;
+  }
+  .listscroll{
+    width: 85vw;
+  }
+  #breeds{
+    width: 60vw;
+  }
+  .dogitem div{
+    font-size: 0.7rem;
+  }
 }

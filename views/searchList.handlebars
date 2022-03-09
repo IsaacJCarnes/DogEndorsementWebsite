@@ -1,31 +1,33 @@
-<div class="dog-list container w-auto listscroll">
-{{#each dogs as |dog|}}
+<div class="dog-list listscroll">
+    {{#each dogs as |dog|}}
     <li class="dogitem">
-        <div>
-            <div class="adoptcard">
+        <div class="d-flex flex-row flex-nowrap justify-content-around" style="width: 85vw">
+            <div class="d-flex flex-column" style="width: 30%">
+                <div class="nameLabel">Name:</div>
+                <div class="name text-justify">{{this.name}}</div>
+                <div class="genderLabel">Gender:</div>
+                <div class="gender text-justify">{{this.gender}}</div>
+                <div class="breedLabel">Breed:</div>
+                <div class="breed1">{{this.breed1}} </div>
+                <div class="breed2">{{this.breed2}}</div>
+            </div>
+
+            <div class="adoptcard" style="width: 30%">
                 <img src={{this.photo_url}}>
             </div>
-            <div class="d-flex flex-row justify-content-around flex-wrap">                
-                <h2 class="name text-justify p-1">Name: {{this.name}}</h2>
-                <div class="d-flex flex-column">
-                    <h4 class="p-1"><a href={{this.adopt_url}}>To Adoption Page!</a></h4>
+
+            <div class="d-flex flex-column" style="width: 30%">
+                <div class=""><a href={{this.adopt_url}}>To Adoption Page!</a></div>
+                <div class="">
                     <input type="hidden" value={{this.id}} name="storeInput">
                     <input type="button" value="Add To Dog Wishlist" name="store">
                 </div>
-            </div>
-            <div class="d-flex flex-row justify-content-around flex-wrap">                
-                <h3 class="gender text-justify p-1">Gender: {{this.gender}}</h3>
-                <div class= "breed d-flex flex-column p-1">
-                    <h3 class="text-justify p-0">Breed:</h3>
-                    <h3 class="text-justify p-0">{{this.breed1}} </h3>
-                    <h3 class="text-justify p-0">{{this.breed2}}</h3>
-                </div>
-                <h3 class="adoptable text-justify p-1">{{this.adoptable}}</h3>
-                <h3 class="distance text-justify p-1">{{this.distance}} miles away</h3>
+                <div class="adoptable text-justify">Currently {{this.adoptable}}</div>
+                <div class="distance text-justify">{{roundDistance this.distance}} miles away</div>
             </div>
         </div>
     </li>
-{{/each}}
+    {{/each}}
 </div>
 
 <script src="/js/saveDog.js"></script>

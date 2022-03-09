@@ -50,9 +50,7 @@ getBreedsList: async (token) => {
                 "Authorization": `Bearer ${token.access_token}`
             }
         }
-        console.log("how");
         const request = https.request(url, https_options, (resp) => {
-          console.log("dee");
             let data = '';
 
             // A chunk of data has been received.
@@ -152,6 +150,10 @@ getDogsFromLocation: async (token, location) =>{
 getDogsFromBreed: async (token, breed) =>{
     let dogList = await getDogsList(token, null, breed);
     return dogList;
+},
+
+roundDistance: (number) =>{
+    return (Math.round(number * 100) / 100);
 },
 
 }
