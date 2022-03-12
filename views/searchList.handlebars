@@ -1,30 +1,32 @@
 <div class="dog-list listscroll">
     {{#each dogs as |dog|}}
-    <li class="dogitem">
-        <div class="d-flex flex-row flex-nowrap justify-content-around" style="width: 85vw">
-            <div class="d-flex flex-column" style="width: 30%">
-                <div class="nameLabel">Name:</div>
-                <div class="name text-justify">{{this.name}}</div>
-                <div class="genderLabel">Gender:</div>
-                <div class="gender text-justify">{{this.gender}}</div>
-                <div class="breedLabel">Breed:</div>
-                <div class="breed1">{{this.breed1}} </div>
-                <div class="breed2">{{this.breed2}}</div>
-            </div>
+    <li class="dogitem d-flex flex-row flex-nowrap">
+        <div class="StatSheet">
+            <div class="nameLabel" style="font-weight: bold;">Name:</div>
+            <div class="name text-center">{{this.name}}</div>
+            <div class="genderLabel" style="font-weight: bold;">Gender:</div>
+            <div class="gender text-center">{{this.gender}}</div>
+            <div class="breedLabel" style="font-weight: bold;">Breed:</div>
+            <div class="breed1 text-center">{{this.breed1}} </div>
+            <div class="breed2 text-center">{{this.breed2}}</div>
+        </div>
 
-            <div class="adoptcard" style="width: 30%">
-                <img src={{this.photo_url}}>
-            </div>
+        <div class="adoptcard d-flex align-items-center justify-content-center"
+            style="width: 30%; height: 20vh; overflow: hidden">
+            <img style="width:95%" src={{this.photo_url}}>
+        </div>
 
-            <div class="d-flex flex-column" style="width: 30%">
-                <div class=""><a href={{this.adopt_url}}>To Adoption Page!</a></div>
-                <div class="">
-                    <input type="hidden" value={{this.id}} name="storeInput">
-                    <input type="button" value="Add To Dog Wishlist" name="store">
-                </div>
-                <div class="adoptable text-justify">Currently {{this.adoptable}}</div>
-                <div class="distance text-justify">{{roundDistance this.distance}} miles away</div>
+        <div class="d-flex flex-column" style="width: 35vw">
+            <a class="btn myBtn" type="button" href={{this.adopt_url}}>To Adoption Page!</a>
+            {{#if loggedIn}}
+            {{else}}
+            <div class="d-flex flex-column">
+                <input type="hidden" value={{this.id}} name="storeInput">
+                <input class="btn myBtn" type="button" value="Add To Dog Wishlist" name="store">
             </div>
+            {{/if}}
+            <div class="adoptable text-justify">Currently {{this.adoptable}}</div>
+            <div class="distance text-justify">{{roundDistance this.distance}} miles away</div>
         </div>
     </li>
     {{/each}}
