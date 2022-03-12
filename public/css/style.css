@@ -163,28 +163,6 @@ img {
   padding-left: 100px;
 }
 
-.adoptcard img {
-  width: 15vw;
-  margin-right: 10px;
-}
-.adoptcardtext {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.listscroll {
-  display: flex;
-  flex-direction: column;
-  padding: 4px;
-  width: 74vw;
-  height: 64vh;
-  background-color: rgb(202, 191, 191);
-  overflow-x: hidden;
-  overflow-y: auto;
-  text-align: justify;
-}
-
 /* LAYOUT */
 /*.container {
   display: flex;
@@ -247,12 +225,61 @@ img {
   display: block;
 }
 
+/* Custom Classes */
+
+.adoptcard img {
+  width: 15vw;
+  margin-right: 10px;
+}
+.adoptcardtext {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.listscroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px;
+  width: 72vw;
+  height: 64vh;
+  background-color: rgb(202, 191, 191);
+  border: 2px solid rgb(202, 191, 191);
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: justify;
+}
+
 #breeds{
   width: 50vw;
 }
 
+.dogitem{
+  margin-top: 5px;
+  width: 60vw;
+  background-color: var(--quatrinary);
+  padding: 5px;
+}
+
 .dogitem div{
   font-size: 1rem;
+}
+
+.StatSheet{
+  display: flex;
+  flex-direction: column;
+  width: 15%; 
+  justify-content:space-evenly;
+}
+
+.myBtn{
+  align-self: center;
+  padding-left: 2px;
+  margin: 5px;
+  width: 30vw;
+  height: 5vh;
+  font-size: 1.6vw;
 }
 
 
@@ -267,7 +294,7 @@ img {
     display: none;
   }
   .Content{
-    width: 90vw;
+    width: 95vw;
     align-items: center;
   }
   .Content h3{
@@ -275,12 +302,21 @@ img {
     font-size: 1.5rem;
   }
   .listscroll{
+    width: 95vw;
+  }
+  .dogitem{
     width: 85vw;
+  }
+  .StatSheet{
+    width: 28%;
   }
   #breeds{
     width: 60vw;
   }
   .dogitem div{
-    font-size: 0.7rem;
+    font-size: 3vw;
+  }
+  .myBtn{
+    font-size: 3vw;
   }
 }

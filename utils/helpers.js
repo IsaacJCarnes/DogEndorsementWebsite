@@ -155,6 +155,10 @@ getDogsFromBreed: async (token, breed) =>{
 roundDistance: (number) =>{
     return (Math.round(number * 100) / 100);
 },
+isLoggedIn: () => {
+    console.log(req.session.loggedIn);
+    return true;
+},
 
 }
   
