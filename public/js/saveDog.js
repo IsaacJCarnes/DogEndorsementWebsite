@@ -13,7 +13,7 @@ const saveListDog = async (event) => {
     dogBreed2 = dataHolder.childNodes[13].innerText;
   }
   let dogAdoptable = target.childNodes[5].childNodes[5].innerText;
-  dogAdoptable = dogAdoptable.substring(11, dogAdoptable.length);
+  dogAdoptable = dogAdoptable.substring(10, dogAdoptable.length);
   let dogDistance = target.childNodes[5].childNodes[7].innerText;
   dogDistance = dogDistance.substring(0, dogDistance.length - 11);
 
