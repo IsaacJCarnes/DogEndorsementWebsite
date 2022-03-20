@@ -16,6 +16,8 @@ The application needs the MySql2, Express, Sequalize and dotenv packages to func
 ## Usage
 The website needs these packages to run: bcrypt, connect-session-sequelize, dotenv, express, express-handlebars, express-session, mysql2, node-fetch, sequelize.
 
+Here is a link to the [deployed site](https://dog-endorsement-website.herokuapp.com/).
+
 ## Screenshots
 ![Landing Page for Dog Endorsement Website](./public/assets/homepage.png)
 ![Search Page for Dog Endorsement Website](./public/assets/searchpage.png)
@@ -23,8 +25,10 @@ The website needs these packages to run: bcrypt, connect-session-sequelize, dote
 ## Contributors
 Isaac:
 - Checkout my [Github here](https://github.com/IsaacJCarnes)
+
 Tasnim:
 - Checkout my [Github here](https://github.com/tasnim123)
+
 Paul:
 - Checkout my [Github here](https://github.com/Orbit001)
 
